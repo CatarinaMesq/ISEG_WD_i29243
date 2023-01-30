@@ -15,6 +15,8 @@ from flask import request
 def login():
     if request.method == 'POST':
         #handle login logic
+        pass
+
     else:
         # show login form
         @app.route ('/login', methods =['POST'])
@@ -22,6 +24,7 @@ def login():
             username = request.form ['username']
             passaword = request.form ['password']
             #handle login logic
+            
 
 from flask import make_response
 
