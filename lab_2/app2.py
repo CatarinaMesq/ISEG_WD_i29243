@@ -50,4 +50,4 @@ from flask import render_template
 def index():
     name = 'John'
     return render_template ('index.html', name=name)
-app.run()
+app.run
