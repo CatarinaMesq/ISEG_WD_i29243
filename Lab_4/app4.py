@@ -27,6 +27,7 @@ def caminho_bd ():
 
 vconexao= caminho_bd ()
 
+
 ##Criação de tabela
 
 #vsql = """CREATE TABLE tb_users (
@@ -46,3 +47,22 @@ vconexao= caminho_bd ()
 
 #tabela_db(vconexao,vsql)
 #vconexao.close()
+
+##Inserção de novos dados na tabbela tb_users
+
+vsql= """INSERT INTO tb_users (name) 
+        VALUES ("Rui")"""
+        
+def inserir(conexao,vsql):
+    """Inserção de novos dados na tabela "Users" na base de dados Lab_4. \n
+        Necessário um cursor, um execute e um commit."""
+
+    try:
+        c= conexao.cursor ()
+        c.execute (vsql)
+        conexao.commit ()
+
+        print("dados adicionados com sucesso")
+    except Error as ex:
+        print (ex)
+inserir(vconexao,vsql)
