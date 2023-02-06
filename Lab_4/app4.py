@@ -66,11 +66,6 @@ def inserir(conexao,vsql):
         print (ex)
 inserir(vconexao,vsql)
 
-##Pesquisa de dados na tabela
-
-vsql= """SELECT * FROM users"""
-
-
 ##Apagar dados na tabela (DELETE)
 
 vsql="""DELETE FROM tb_users where id_users = 1"""
@@ -105,3 +100,24 @@ def update(conexao,vsql):
     finally:
         print("dados atualizados com sucesso")
 update(vconexao,vsql)
+
+##Pesquisa de dados na tabela
+
+def pesquisa(conexao,vsql):
+    """Pesquisa de dados na tabela "Users" na base de dados Lab_4. \n
+        Necessário um cursor, um execute. \n
+        Vai ser criada uma nova tabela com os dados selecionados. \n
+        Vamos receber um return: a pesquisa propriamente dita"""
+    
+    c= conexao.cursor ()
+    c.execute (vsql)
+    resultado= c.fetchall ()
+    return resultado 
+
+vsql= """SELECT * FROM tb_users"""  
+#Para fazer a pesquisa em todas as linhas da tabela, temos de fazer um ciclo for. Para isso vamos transfomar a "pesquisa",
+# não a função mas a corrida numa variàvel. Assim...      
+res = pesquisa(vconexao,vsql)  
+for r in res:
+    print (r) 
+#Vai imprimir no terminal a informação de cada linha de toda a tabela
