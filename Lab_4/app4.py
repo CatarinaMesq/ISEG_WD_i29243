@@ -48,7 +48,7 @@ def tabela_db(conexao,vsql):
 tabela_db(vconexao,vsql)
 vconexao.close()
 
-##Inserção de novos dados na tabbela tb_users
+##Inserção de novos dados na tabela tb_users
 
 vsql= """INSERT INTO tb_users (name) 
         VALUES ("Rafael")"""
@@ -61,8 +61,47 @@ def inserir(conexao,vsql):
         c= conexao.cursor ()
         c.execute (vsql)
         conexao.commit ()
-
         print("dados adicionados com sucesso")
     except Error as ex:
         print (ex)
 inserir(vconexao,vsql)
+
+##Pesquisa de dados na tabela
+
+vsql= """SELECT * FROM users"""
+
+
+##Apagar dados na tabela (DELETE)
+
+vsql="""DELETE FROM tb_users where id_users = 1"""
+
+def apagar(conexao,vsql):
+    """Remover dados na tabela "Users" na base de dados Lab_4. \n
+        Necessário um cursor, um execute e um commit."""
+
+    try:
+        c= conexao.cursor ()
+        c.execute (vsql)
+        conexao.commit ()
+    except Error as ex:
+        print (ex)
+    finally:
+        print("dados removidos com sucesso")
+apagar(vconexao,vsql)
+
+##UpDate de dados na tabela
+
+vsql= """UPDATE tb_users SET name = "Bernardo" WHERE id_users = 3"""
+
+def update(conexao,vsql):
+    """Atualização de dados na tabela "Users" na base de dados Lab_4. \n
+        Necessário um cursor, um execute e um commit."""
+    try:
+        c= conexao.cursor ()
+        c.execute (vsql)
+        conexao.commit ()
+    except Error as ex:
+        print (ex)
+    finally:
+        print("dados atualizados com sucesso")
+update(vconexao,vsql)
