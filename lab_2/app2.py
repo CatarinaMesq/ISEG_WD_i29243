@@ -11,7 +11,8 @@ app = Flask (__name__)
 
 @app.route ('/')
 def index():
-   return 'Hello World!'
+    name = 'John'
+    return render_template('index.html', name=name)
 
 #passar variáveis ​​para a rota, use colchetes angulares na rota e inclua uma variável na função:
 
@@ -34,14 +35,9 @@ def login():
         # show the login form
         return render_template('login.html')
 
-@app.route('/')
-def index():
-    response = make_response('Hello World!')
-    response.headers['Content-Type'] = 'text/plain'
-    return response 
-
-@app.route('/')
-def index():
-    name = 'John'
-    return render_template ('index.html', name=name)
+#@app.route('/')
+#def index():
+    #response = make_response('Hello World!')
+    #response.headers['Content-Type'] = 'text/plain'
+    #return response 
 app.run()
