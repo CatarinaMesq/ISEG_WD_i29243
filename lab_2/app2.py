@@ -24,17 +24,15 @@ def show_user(username):
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     if request.method == 'POST':
-# handle login logic
+        username = request.form['username']
+        password = request.form['password']
+        if username == 'admin' and password == 'secret':
+            return 'Login successful'
+        else:
+            return 'Invalid username or password'
     else:
-    return
-
-        # show login form
-
-
-@app.route('/login', methods = ['POST'] )
-def login():
-    username = request.form['username']
-    password = request.form['password']
+        # show the login form
+        return render_template('login.html')
 
 @app.route('/')
 def index():
@@ -46,5 +44,4 @@ def index():
 def index():
     name = 'John'
     return render_template ('index.html', name=name)
-    
 app.run()
