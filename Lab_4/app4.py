@@ -30,28 +30,28 @@ vconexao= caminho_bd ()
 
 ##Criação de tabela
 
-#vsql = """CREATE TABLE tb_users (
- #   id_users INTEGER PRIMARY KEY AUTOINCREMENT,
-  #  name TEXT VARCHAR(30))"""
-#def tabela_db(conexao,vsql):
- #   """
-  #  Criação da tabela "Users" na base de dados Lab_4. \n
-   # Necessário um cursor e um execute.
-    #"""
-    #try:
-     #   c=conexao.cursor ()
-      #  c.execute(vsql)
-       # print("tabela criada")
-    #except Error as ex:
-     #   print (ex)  
+vsql = """CREATE TABLE IF NOT EXISTS tb_users (
+    id_users INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT VARCHAR(30))"""
+def tabela_db(conexao,vsql):
+    """
+    Criação da tabela "Users" na base de dados Lab_4. \n
+    Necessário um cursor e um execute.
+    """
+    try:
+        c=conexao.cursor ()
+        c.execute(vsql)
+        print("tabela criada")
+    except Error as ex:
+        print (ex)  
 
-#tabela_db(vconexao,vsql)
-#vconexao.close()
+tabela_db(vconexao,vsql)
+vconexao.close()
 
 ##Inserção de novos dados na tabbela tb_users
 
 vsql= """INSERT INTO tb_users (name) 
-        VALUES ("Rui")"""
+        VALUES ("Rafael")"""
         
 def inserir(conexao,vsql):
     """Inserção de novos dados na tabela "Users" na base de dados Lab_4. \n
