@@ -115,10 +115,10 @@ inserir(vconexao,vsql)
     #resultado= c.fetchall ()
     #return resultado 
 
-#vsql= """SELECT * FROM tb_users"""  
+vsql= """SELECT * FROM tb_users"""  
 #Para fazer a pesquisa em todas as linhas da tabela, temos de fazer um ciclo for. Para isso vamos transfomar a "pesquisa",
-# não a função mas a corrida numa variàvel. Assim...      
-#res = pesquisa(vconexao,vsql)  
-#for r in res:
- #   print (r) 
+ #não a função mas a corrida numa variàvel. Assim...      
+res = pesquisa(vconexao,vsql)  
+for r in res:
+    print (r) 
 #Vai imprimir no terminal a informação de cada linha de toda a tabela
