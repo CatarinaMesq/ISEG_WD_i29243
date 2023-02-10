@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
-import models
+#import models
 
 app = Flask(__name__)
 app.secret_key = "secret"
@@ -18,14 +18,14 @@ def register():
     #models.add_user(conn, username, password, email)
     #conn.close()
 
-    #return redirect("/login")
+    return redirect("/login")
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method != "POST":
-        return render_template("login.html")
-    username = request.form["username"]
-    password = request.form["password"]
+#@app.route("/login", methods=["GET", "POST"])
+#def login():
+ #   if request.method != "POST":
+  #      return render_template("login.html")
+   # username = request.form["username"]
+    #password = request.form["password"]
 
     #conn = sqlite3.connect("media_users.db")
     #user = models.get_user_by_username(conn, username)
