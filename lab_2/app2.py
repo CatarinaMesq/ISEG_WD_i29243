@@ -16,11 +16,18 @@ def index():
 
 #passar variáveis ​​para a rota, use colchetes angulares na rota e inclua uma variável na função:
 
-@app.route ('/users/<username>')
+@app.route ('/users/<username>')   #Aqui só funciona se escrevermos um "nome" no URL. E retoma: User:"nome"
 def show_user(username):
     return f'User:{username}'      # o "f" serve para "strings literais formatadas", iniciam com a letra "f" e {} para ler a variável 
 
-
+#O correcto seria:
+#@app.route ('/users')
+#@app.route ('/users/<username>')  
+#def show_user(username= None):
+ #   if username:
+  #      return f'User:{username}'
+   # else:
+    #    return f'User: ?'
 
 @app.route('/login', methods =['GET', 'POST'])
 def login():
@@ -32,7 +39,7 @@ def login():
         else:
             return 'Invalid username or password'
     else:
-        # show the login form
+         show the login form
         return render_template('login.html')
 
 #@app.route('/')
