@@ -14,6 +14,7 @@ def index():
     name = 'John'
     return render_template('index.html', name=name)
 
+
 #passar variáveis ​​para a rota, use colchetes angulares na rota e inclua uma variável na função:
 
 @app.route ('/users/<username>')   #Aqui só funciona se escrevermos um "nome" no URL. E retoma: User:"nome"

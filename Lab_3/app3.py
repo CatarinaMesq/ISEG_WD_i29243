@@ -1,15 +1,18 @@
 from flask import render_template, request, make_response, Flask
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField 
+# StringField para preencher os campos sob a forma de String ou SubmitField para submeter
 from wtforms.validators import DataRequired
+#DataRequired, serve para validar os dados inseridos pelo utilizador, para isso tem de ser importado
 
 app = Flask (__name__)
 crsf = CSRFProtect(app)
 app.config["SECRET_KEY"] = "my_secret_key"
 
+#Criação de uma classe chamada NameForm e vai herdar a classe FlaskForm
 class NameForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired()]) #DataRequired, serve para validar os dados inseridos pelo utilizador
     submit = SubmitField("Submit")
 
 @app.route('/')
