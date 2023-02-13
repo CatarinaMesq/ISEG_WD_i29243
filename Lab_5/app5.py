@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
-#import models
+from sqlite3 import Error
+import models
 
 app = Flask(__name__)
 app.secret_key = "secret"
