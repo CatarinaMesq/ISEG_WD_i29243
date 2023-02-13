@@ -7,7 +7,7 @@ import models
 app = Flask(__name__)
 app.secret_key = "secret"
 
-@app.route("/register", methods=["GET", "POST"])   #criado o caminho para a pág de registo
+#@app.route("/register", methods=["GET", "POST"])   #criado o caminho para a pág de registo
 def register():
     """Registo do utilizador atraves do preenchimento dos campos
     username; password; email"""
@@ -33,9 +33,9 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
 
-    #conn = sqlite3.connect("media_users.db")
-    #user = models.get_user_by_username(conn, username)
-    #conn.close()
+    conn = sqlite3.connect("media_users.db")
+    user = models.get_user_by_username(conn, username)
+    conn.close()
 
     #if user is None or user[2] != password:
      #   return "Incorrect username or password"
